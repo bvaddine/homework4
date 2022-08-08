@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <center>
+    <h2>Companies listing</h2>
+    <form method="post">
+    {% if error %}
+      <p>{{error}}</p>
+    {% endif %}
+    {% for disp in disp %}
+
+        {{disp.name}} &emsp; {{disp.email}} &emsp; {{disp.addr}} &emsp; {{disp.contact}}
+        <input type="hidden" name="delete" value={{disp.email}} formaction="/">&emsp;{{form.delete()}}&emsp;</input>
+        <input type="hidden" name="delete" value={{disp.email}} formaction="/">&emsp;{{form.update()}}&emsp;</input>
+        <br>
+    {% endfor %}
+    <br>
+    {{form.add()}}
+    </<form>
+      </center>
+  </body>
+</html>
